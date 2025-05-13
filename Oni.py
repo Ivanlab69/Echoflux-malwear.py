@@ -11,7 +11,7 @@ from cryptography.hazmat.backends import default_backend
 from cryptography.fernet import Fernet
 
 # Configure logging for debugging
-ologging.basicConfig(level=logging.INFO, format='%(asctime)s [%(levelname)s] %(message)s')
+logging.basicConfig(level=logging.INFO, format='%(asctime)s [%(levelname)s] %(message)s')
 
 # Log environment details
 logging.info(f"Running on platform: {platform.system()} {platform.release()}")
@@ -92,6 +92,9 @@ def main():
         display_image(img_path)
     else:
         logging.warning(f"Image not found: {img_path}")
+
+    # Pause so window stays open when double-clicked on Windows
+    input("\nPress Enter to exit...")
 
 if __name__ == "__main__":
     main()
